@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+  <author>@NabeelKhanYYC</author>
+  <email>phpdocumentor@n45337.net</email>
+  <version>0.0.1</version>
+  <copyright>Nabeel Khan</copyright>
+  <description>Template to generate an index of the files and line numbers for code so that it can be more easily used by AI coding tools like claude to reduce token usage.</description>
+  <transformations>
+    <transformation writer="twig" source="templates/index/files.twig" artifact="files.txt"/>
+    <transformation writer="twig" query="files" source="templates/index/file.twig" artifact="files/{{path}}.txt"/>
+  </transformations>
+</template>

@@ -1,0 +1,43 @@
+{% set file = node %}
+{% for constant in file.constants %}
+{{ constant.line == constant.endLocation.lineNumber ? constant.line : constant.line ~ '-' ~ constant.endLocation.lineNumber }}:{{ constant.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for function in file.functions %}
+{{ function.line == function.endLocation.lineNumber ? function.line : function.line ~ '-' ~ function.endLocation.lineNumber }}:{{ function.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for interface in file.interfaces %}
+{{ interface.line == interface.endLocation.lineNumber ? interface.line : interface.line ~ '-' ~ interface.endLocation.lineNumber }}:{{ interface.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for class in file.classes %}
+{{ class.line == class.endLocation.lineNumber ? class.line : class.line ~ '-' ~ class.endLocation.lineNumber }}:{{ class.fullyQualifiedStructuralElementName }}
+{% for constant in class.inheritedConstants %}
+{{ constant.line == constant.endLocation.lineNumber ? constant.line : constant.line ~ '-' ~ constant.endLocation.lineNumber }}:{{ constant.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for constant in class.constants %}
+{{ constant.line == constant.endLocation.lineNumber ? constant.line : constant.line ~ '-' ~ constant.endLocation.lineNumber }}:{{ constant.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for property in class.inheritedProperties %}
+{{ property.line == property.endLocation.lineNumber ? property.line : property.line ~ '-' ~ property.endLocation.lineNumber }}:{{ property.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for property in class.properties %}
+{{ property.line == property.endLocation.lineNumber ? property.line : property.line ~ '-' ~ property.endLocation.lineNumber }}:{{ property.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for method in class.inheritedMethods %}
+{{ method.line == method.endLocation.lineNumber ? method.line : method.line ~ '-' ~ method.endLocation.lineNumber }}:{{ method.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for method in class.methods %}
+{{ method.line == method.endLocation.lineNumber ? method.line : method.line ~ '-' ~ method.endLocation.lineNumber }}:{{ method.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for method in class.magicMethods %}
+{{ method.line == method.endLocation.lineNumber ? method.line : method.line ~ '-' ~ method.endLocation.lineNumber }}:{{ method.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% endfor %}
+{% for trait in file.traits %}
+{{ trait.line == trait.endLocation.lineNumber ? trait.line : trait.line ~ '-' ~ trait.endLocation.lineNumber }}:{{ trait.fullyQualifiedStructuralElementName }}
+{% for property in trait.properties %}
+{{ property.line == property.endLocation.lineNumber ? property.line : property.line ~ '-' ~ property.endLocation.lineNumber }}:{{ property.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for method in trait.methods %}
+{{ method.line == method.endLocation.lineNumber ? method.line : method.line ~ '-' ~ method.endLocation.lineNumber }}:{{ method.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% endfor %}

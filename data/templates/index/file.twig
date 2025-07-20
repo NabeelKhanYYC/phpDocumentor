@@ -5,6 +5,15 @@
 {% for function in file.functions %}
 {{ function.line == function.endLocation.lineNumber ? function.line : function.line ~ '-' ~ function.endLocation.lineNumber }}:{{ function.fullyQualifiedStructuralElementName }}
 {% endfor %}
+{% for enum in file.enums %}
+{{ enum.line == enum.endLocation.lineNumber ? enum.line : enum.line ~ '-' ~ enum.endLocation.lineNumber }}:{{ enum.fullyQualifiedStructuralElementName }}
+{% for case in enum.cases %}
+{{ case.line == case.endLocation.lineNumber ? case.line : case.line ~ '-' ~ case.endLocation.lineNumber }}:{{ case.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% for method in enum.methods %}
+{{ method.line == method.endLocation.lineNumber ? method.line : method.line ~ '-' ~ method.endLocation.lineNumber }}:{{ method.fullyQualifiedStructuralElementName }}
+{% endfor %}
+{% endfor %}
 {% for interface in file.interfaces %}
 {{ interface.line == interface.endLocation.lineNumber ? interface.line : interface.line ~ '-' ~ interface.endLocation.lineNumber }}:{{ interface.fullyQualifiedStructuralElementName }}
 {% endfor %}

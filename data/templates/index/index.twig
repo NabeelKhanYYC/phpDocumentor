@@ -1,0 +1,20 @@
+{% for file in project.files %}
+{% for constant in file.constants %}
+{{ constant.fullyQualifiedStructuralElementName }}:index/{{ file.path }}.txt
+{% endfor %}
+{% for function in file.functions %}
+{{ function.fullyQualifiedStructuralElementName }}:index/{{ file.path }}.txt
+{% endfor %}
+{% for enum in file.enums %}
+{{ enum.fullyQualifiedStructuralElementName }}:index/{{ file.path }}.txt
+{% endfor %}
+{% for interface in file.interfaces %}
+{{ interface.fullyQualifiedStructuralElementName }}:index/{{ file.path }}.txt
+{% endfor %}
+{% for class in file.classes %}
+{{ class.fullyQualifiedStructuralElementName }}:index/{{ file.path }}.txt
+{% endfor %}
+{% for trait in file.traits %}
+{{ trait.fullyQualifiedStructuralElementName }}:index/{{ file.path }}.txt
+{% endfor %}
+{% endfor %}

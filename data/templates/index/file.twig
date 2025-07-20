@@ -7,6 +7,9 @@
 {% endfor %}
 {% for enum in file.enums %}
 {{ enum.line == enum.endLocation.lineNumber ? enum.line : enum.line ~ '-' ~ enum.endLocation.lineNumber }}:{{ enum.fullyQualifiedStructuralElementName }}
+{% for constant in enum.constants %}
+{{ constant.line == constant.endLocation.lineNumber ? constant.line : constant.line ~ '-' ~ constant.endLocation.lineNumber }}:{{ constant.fullyQualifiedStructuralElementName }}
+{% endfor %}
 {% for case in enum.cases %}
 {{ case.line == case.endLocation.lineNumber ? case.line : case.line ~ '-' ~ case.endLocation.lineNumber }}:{{ case.fullyQualifiedStructuralElementName }}
 {% endfor %}
